@@ -1,0 +1,21 @@
+version: '2'
+services:
+  postgis:
+    build: docker
+    container_name: postgis
+    ports:
+      - '1080:80'
+      - '1032:5432'
+    environment:
+      POSTGRES_USER: testing
+      POSTGRES_PASSWORD: '302010'
+      POSTGRES_DB: nyc
+    restart: always
+    volumes:
+      - './home/:/home/'
+      - './postgres_data/:/var/lib/postgresql/data/'
+      - './pg_admin/:/var/lib/pgadmin/'
+volumes:
+  home: {}
+  postgres_data: {}
+  pg_admin: {}
